@@ -15,4 +15,8 @@ extension CelluralFillPresenter: CelluralFillModuleInput {
 // MARK: - CelluralFillViewOutput
 
 extension CelluralFillPresenter: CelluralFillViewOutput {
+    func didLoadView() {
+        let model = CelluralFillViewModel()
+        view?.configure(with: model)
+    }
 }

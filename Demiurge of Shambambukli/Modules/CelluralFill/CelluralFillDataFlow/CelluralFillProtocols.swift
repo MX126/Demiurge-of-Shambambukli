@@ -8,7 +8,9 @@ protocol CelluralFillModuleOutput: AnyObject {
 }
 
 protocol CelluralFillViewInput: AnyObject {
+    func configure(with model: CelluralFillViewModel)
 }
 
 protocol CelluralFillViewOutput: AnyObject {
+    func didLoadView()
 }
