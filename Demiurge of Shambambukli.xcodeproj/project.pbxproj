@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		4D88CE052CAE9A7F006CE50D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D28C57F2CAC37CB00C19832 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D28C5862CAC37CB00C19832;
+			remoteInfo = "Demiurge of Shambambukli";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		4D28C5872CAC37CB00C19832 /* Demiurge of Shambambukli.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demiurge of Shambambukli.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D88CE012CAE9A7E006CE50D /* Demiurge of ShambambukliTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Demiurge of ShambambukliTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -29,10 +40,22 @@
 			path = "Demiurge of Shambambukli";
 			sourceTree = "<group>";
 		};
+		4D88CE022CAE9A7E006CE50D /* Demiurge of ShambambukliTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Demiurge of ShambambukliTests";
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4D28C5842CAC37CB00C19832 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D88CDFE2CAE9A7E006CE50D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				4D28C5892CAC37CB00C19832 /* Demiurge of Shambambukli */,
+				4D88CE022CAE9A7E006CE50D /* Demiurge of ShambambukliTests */,
 				4D28C5882CAC37CB00C19832 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				4D28C5872CAC37CB00C19832 /* Demiurge of Shambambukli.app */,
+				4D88CE012CAE9A7E006CE50D /* Demiurge of ShambambukliTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +108,29 @@
 			productReference = 4D28C5872CAC37CB00C19832 /* Demiurge of Shambambukli.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4D88CE002CAE9A7E006CE50D /* Demiurge of ShambambukliTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D88CE092CAE9A7F006CE50D /* Build configuration list for PBXNativeTarget "Demiurge of ShambambukliTests" */;
+			buildPhases = (
+				4D88CDFD2CAE9A7E006CE50D /* Sources */,
+				4D88CDFE2CAE9A7E006CE50D /* Frameworks */,
+				4D88CDFF2CAE9A7E006CE50D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D88CE062CAE9A7F006CE50D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4D88CE022CAE9A7E006CE50D /* Demiurge of ShambambukliTests */,
+			);
+			name = "Demiurge of ShambambukliTests";
+			packageProductDependencies = (
+			);
+			productName = "Demiurge of ShambambukliTests";
+			productReference = 4D88CE012CAE9A7E006CE50D /* Demiurge of ShambambukliTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -95,6 +143,10 @@
 				TargetAttributes = {
 					4D28C5862CAC37CB00C19832 = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					4D88CE002CAE9A7E006CE50D = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 4D28C5862CAC37CB00C19832;
 					};
 				};
 			};
@@ -113,12 +165,20 @@
 			projectRoot = "";
 			targets = (
 				4D28C5862CAC37CB00C19832 /* Demiurge of Shambambukli */,
+				4D88CE002CAE9A7E006CE50D /* Demiurge of ShambambukliTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4D28C5852CAC37CB00C19832 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D88CDFF2CAE9A7E006CE50D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -135,7 +195,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4D88CDFD2CAE9A7E006CE50D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4D88CE062CAE9A7F006CE50D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D28C5862CAC37CB00C19832 /* Demiurge of Shambambukli */;
+			targetProxy = 4D88CE052CAE9A7F006CE50D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4D28C59B2CAC37CC00C19832 /* Debug */ = {
@@ -311,6 +386,42 @@
 			};
 			name = Release;
 		};
+		4D88CE072CAE9A7F006CE50D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72F47Y7J7T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mk.Demiurge-of-ShambambukliTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demiurge of Shambambukli.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Demiurge of Shambambukli";
+			};
+			name = Debug;
+		};
+		4D88CE082CAE9A7F006CE50D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72F47Y7J7T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mk.Demiurge-of-ShambambukliTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demiurge of Shambambukli.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Demiurge of Shambambukli";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -328,6 +439,15 @@
 			buildConfigurations = (
 				4D28C59B2CAC37CC00C19832 /* Debug */,
 				4D28C59C2CAC37CC00C19832 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D88CE092CAE9A7F006CE50D /* Build configuration list for PBXNativeTarget "Demiurge of ShambambukliTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D88CE072CAE9A7F006CE50D /* Debug */,
+				4D88CE082CAE9A7F006CE50D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

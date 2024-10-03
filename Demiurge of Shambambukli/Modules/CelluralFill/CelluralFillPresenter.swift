@@ -6,8 +6,8 @@ final class CelluralFillPresenter {
     weak var view: CelluralFillViewInput?
     weak var moduleOutput: CelluralFillModuleOutput?
     
-    private var cells: [CelluralFillCellState] = []
-    private var lastStates: [CelluralFillCellState] = []
+    private(set) var cells: [CelluralFillCellState] = []
+    private(set) var lastStates: [CelluralFillCellState] = []
 }
 
 // MARK: - CelluralFillModuleInput
