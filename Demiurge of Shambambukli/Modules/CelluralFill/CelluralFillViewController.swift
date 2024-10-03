@@ -112,6 +112,10 @@ private extension CelluralFillViewController {
 // MARK: - CelluralFillViewInput
 
 extension CelluralFillViewController: CelluralFillViewInput {
+    func reloadData() {
+        tableView.reloadData()
+    }
+    
     func configure(with model: CelluralFillViewModel) {
         actionButton.setTitle(model.actionButtonTitle, for: .normal)
         labelTitle.attributedText = model.labelTitle
@@ -124,7 +128,7 @@ extension CelluralFillViewController: CelluralFillViewInput {
         tableView.beginUpdates()
         
         if cells.count > oldCellCount {
-            let newIndexPaths = (oldCellCount..<cells.count).map { IndexPath(row: $0, section: 0) }
+            let newIndexPaths = (oldCellCount..<cells.count).map { IndexPath(row: $0, section: .zero) }
             tableView.insertRows(at: newIndexPaths, with: .automatic)
         } else {
             tableView.reloadData()
@@ -132,9 +136,9 @@ extension CelluralFillViewController: CelluralFillViewInput {
         
         tableView.endUpdates()
         
-        if !tableView.isDragging && !tableView.isDecelerating && cells.count > 0 {
+        if !tableView.isDragging && !tableView.isDecelerating && cells.count > .zero {
             let lastRowIndex = cells.count - 1
-            let lastIndexPath = IndexPath(row: lastRowIndex, section: 0)
+            let lastIndexPath = IndexPath(row: lastRowIndex, section: .zero)
             tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
         }
     }

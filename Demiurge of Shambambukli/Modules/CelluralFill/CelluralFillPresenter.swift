@@ -18,6 +18,10 @@ extension CelluralFillPresenter: CelluralFillModuleInput {
 // MARK: - CelluralFillViewOutput
 
 extension CelluralFillPresenter: CelluralFillViewOutput {
+    func didChangedCellState() {
+        view?.reloadData()
+    }
+    
     func didTapActionButton() {
         var newState: CelluralFillCellState
 
@@ -28,6 +32,7 @@ extension CelluralFillPresenter: CelluralFillViewOutput {
                 if let index = cells.lastIndex(where: { $0 == .life }) {
                     cells[index] = .dead
                 }
+                didChangedCellState()
                 newState = CelluralFillCellState.randomState()
             } else {
                 newState = CelluralFillCellState.randomState()
