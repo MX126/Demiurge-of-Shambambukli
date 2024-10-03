@@ -118,8 +118,25 @@ extension CelluralFillViewController: CelluralFillViewInput {
     }
     
     func fillCells(with model: CellStateViewModel) {
+        let oldCellCount = cells.count
         cells = model.cells
-        tableView.reloadData()
+        
+        tableView.beginUpdates()
+        
+        if cells.count > oldCellCount {
+            let newIndexPaths = (oldCellCount..<cells.count).map { IndexPath(row: $0, section: 0) }
+            tableView.insertRows(at: newIndexPaths, with: .automatic)
+        } else {
+            tableView.reloadData()
+        }
+        
+        tableView.endUpdates()
+        
+        if !tableView.isDragging && !tableView.isDecelerating && cells.count > 0 {
+            let lastRowIndex = cells.count - 1
+            let lastIndexPath = IndexPath(row: lastRowIndex, section: 0)
+            tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+        }
     }
 }
 

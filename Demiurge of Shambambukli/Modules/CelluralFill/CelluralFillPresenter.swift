@@ -43,7 +43,10 @@ extension CelluralFillPresenter: CelluralFillViewOutput {
         let viewModel = CellStateViewModel(
             cells: cells
         )
-        view?.fillCells(with: viewModel)
+        
+        DispatchQueue.main.async {
+            self.view?.fillCells(with: viewModel)
+        }
     }
     
     func didLoadView() {
