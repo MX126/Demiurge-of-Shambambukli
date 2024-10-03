@@ -7,18 +7,11 @@ final class CelluralFillViewController: UIViewController {
     
     private lazy var blurGradientView = BlurGradientView(frame: view.bounds,
                                                          gradientColors: [UIColor.purple, UIColor.black])
-    
     private let labelTitle = UILabel()
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.backgroundColor = .clear
-        //        tableView.register(TextCell.self, forCellWithReuseIdentifier: "TextCell")
-        tableView.showsHorizontalScrollIndicator = false
-        tableView.dataSource = self
-        tableView.delegate = self
-        return tableView
-    }()
+    private let tableView = UITableView()
     private let actionButton = UIButton(type: .system)
+    
+    private var cells: [CelluralFillCellState] = []
     
     // MARK: - Lifecycle
     
@@ -48,7 +41,7 @@ final class CelluralFillViewController: UIViewController {
     // MARK: - Actions
     
     @objc func didTapActionButton() {
-        
+        output.didTapActionButton()
     }
 }
 
@@ -61,7 +54,17 @@ private extension CelluralFillViewController {
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
+        setupTableView()
         setupActionButton()
+    }
+    
+    func setupTableView() {
+        tableView.backgroundColor = .clear
+        tableView.register(CelluralFillCell.self, forCellReuseIdentifier: String(describing: CelluralFillCell.self))
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.showsVerticalScrollIndicator = false
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     func setupActionButton() {
@@ -94,7 +97,7 @@ private extension CelluralFillViewController {
                                                    constant: -Constants.actionButtonCornerOffset),
             actionButton.heightAnchor.constraint(equalToConstant: Constants.actionButtonHeight),
             
-            tableView.topAnchor.constraint(equalTo: blurGradientView.safeAreaLayoutGuide.topAnchor),
+            tableView.topAnchor.constraint(equalTo: labelTitle.bottomAnchor, constant: Constants.tableViewTopOffset),
             tableView.leadingAnchor.constraint(equalTo: blurGradientView.safeAreaLayoutGuide.leadingAnchor,
                                                constant: Constants.tableViewCornerOffset),
             tableView.trailingAnchor.constraint(equalTo: blurGradientView.safeAreaLayoutGuide.trailingAnchor,
@@ -113,23 +116,38 @@ extension CelluralFillViewController: CelluralFillViewInput {
         actionButton.setTitle(model.actionButtonTitle, for: .normal)
         labelTitle.attributedText = model.labelTitle
     }
+    
+    func fillCells(with model: CellStateViewModel) {
+        cells = model.cells
+        tableView.reloadData()
+    }
 }
 
 // MARK: - UITableViewDataSource
 
 extension CelluralFillViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        .zero
+        return cells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CelluralFillCell.self), for: indexPath) as? CelluralFillCell else {
+            return UITableViewCell()
+        }
+        
+        let cellState = cells[indexPath.row]
+        cell.configure(with: cellState)
+        
+        return cell
     }
 }
 
 // MARK: - UITableViewDelegate
 
 extension CelluralFillViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.tableViewCellHeight
+    }
 }
 
 // MARK: - Constants
@@ -141,9 +159,9 @@ private extension CelluralFillViewController {
         static let actionButtonCornerRadius: CGFloat = 6
         static let actionButtonHeight: CGFloat = 36
         
+        static let tableViewTopOffset: CGFloat = 10
         static let tableViewCornerOffset: CGFloat = 16
         static let tableViewBottomOffset: CGFloat = 10
-        
-        static let tableViewHeaderHeight: CGFloat = 60
+        static let tableViewCellHeight: CGFloat = 90
     }
 }

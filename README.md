@@ -41,8 +41,4 @@
 
 ### Используемые библиотеки
 
-Библиотеки автоматически подготовлены с помощью [SPM](https://github.com/swiftlang/swift-package-manager), дополнительной установки не требуется
-
-[Swinject](https://github.com/Swinject/Swinject) -> 2.9.1 | *Внедрение DI в проект*
-
-[SwinjectAutoregistration](https://github.com/Swinject/SwinjectAutoregistration) -> 2.9.1 | *Автоматизация внедрения DI в проект*
+Приложение написано без внешних фреймворков.
